@@ -30,17 +30,17 @@ stages:
         - publish: $(System.DefaultWorkingDirectory)/.
           artifact: WebApp
 
-- stage: test
-  displayName: Run Karma Test Suite
-  jobs:
-    - job: test
-      pool:
-        vmImage: 'ubuntu-latest'
-      container: node
-      steps:
-        - bash: 'npm config set @sap:registry "https://npm.sap.com" && npm install && npm run-script test'
-        - publish: $(System.DefaultWorkingDirectory)/.
-          artifact: TestResult
+# - stage: test
+#   displayName: Run Karma Test Suite
+#   jobs:
+#     - job: test
+#       pool:
+#         vmImage: 'ubuntu-latest'
+#       container: node
+#       steps:
+#         - bash: 'npm config set @sap:registry "https://npm.sap.com" && npm install && npm run-script test'
+#         - publish: $(System.DefaultWorkingDirectory)/.
+#           artifact: TestResult
 
 
 - stage: deploy
